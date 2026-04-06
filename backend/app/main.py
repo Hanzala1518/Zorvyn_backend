@@ -50,7 +50,7 @@ app.add_middleware(SlowAPIMiddleware)
 # FastAPI CORSMiddleware already handles OPTIONS preflight — no extra handler needed.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
+    allow_origins=settings.get_allowed_origins(),
     allow_origin_regex=r"https://.*\.vercel\.app",  # allow all Vercel preview URLs
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
